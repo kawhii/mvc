@@ -9,4 +9,8 @@ public interface ICreateUser {
      * @return
      */
     String getName();
+
+    default String getScope() {
+        return "user";
+    }
 }
