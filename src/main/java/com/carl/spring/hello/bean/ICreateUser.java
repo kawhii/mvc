@@ -17,4 +17,6 @@ public interface ICreateUser {
     default int getAge() {
         return 0;
     }
+
+    default void test() {}
 }
