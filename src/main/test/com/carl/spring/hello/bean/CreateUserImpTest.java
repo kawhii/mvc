@@ -7,19 +7,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Created by Administrator on 2016/8/27.
  */
-public class CreateUserImpTest {
+public class CreateUserImpTest extends BaseTest {
     private ICreateUser createUser;
     private ICreateUser factoryCreateUser;
-    @org.junit.Before
-    public void setUp() throws Exception {
-        ApplicationContext context =
-                new ClassPathXmlApplicationContext(new String[] {"application-context.xml"});
-        createUser = context.getBean("createUser", ICreateUser.class);
-        factoryCreateUser = context.getBean("factoryCreateUser", ICreateUser.class);
-    }
 
     @org.junit.Test
     public void getName() throws Exception {
+        createUser = context.getBean("createUser", ICreateUser.class);
+        factoryCreateUser = context.getBean("factoryCreateUser", ICreateUser.class);
+
         Assert.assertNotNull(createUser);
         Assert.assertNotNull(factoryCreateUser);
         System.out.println(createUser.getName());
