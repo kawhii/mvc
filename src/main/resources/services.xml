@@ -7,6 +7,16 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- services -->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>message.format</value>
+                <value>message.exceptions</value>
+                <value>message.windows</value>
+            </list>
+        </property>
+    </bean>
 
     <bean id="createUser" class="com.carl.spring.hello.bean.CreateUserImp" p:age="1" c:name="Carl">
     </bean>
@@ -14,7 +24,7 @@
     </bean>
     <bean id="factoryCreateUser" class="com.carl.spring.hello.bean.CreateUserImp"
           factory-bean="factory" factory-method="create"
-        >
+    >
     </bean>
 
     <bean id="mappings"
