@@ -14,7 +14,11 @@ public interface ICreateUser {
         return "user";
     }
 
-    default int getAaaaage() {
+    /**
+     * age
+     * @return
+     */
+    default int getAgee() {
         return 0;
     }
 
