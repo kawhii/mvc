@@ -13,10 +13,4 @@ public interface ICreateUser {
     default String getScope() {
         return "user";
     }
-
-    default int getAge() {
-        return 0;
-    }
-
-    default void test() {}
 }
