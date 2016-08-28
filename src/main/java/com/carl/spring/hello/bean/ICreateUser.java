@@ -5,4 +5,8 @@ package com.carl.spring.hello.bean;
  */
 public interface ICreateUser {
     String getName();
+
+    default String getScope() {
+        return "user";
+    }
 }
