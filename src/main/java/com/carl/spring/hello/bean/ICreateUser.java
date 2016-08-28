@@ -5,7 +5,7 @@ package com.carl.spring.hello.bean;
  */
 public interface ICreateUser {
     /**
-     * 名字
+     * 名字这样子啊
      * @return
      */
     String getName();
