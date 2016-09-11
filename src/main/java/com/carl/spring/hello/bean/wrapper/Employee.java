@@ -1,5 +1,8 @@
 package com.carl.spring.hello.bean.wrapper;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Carl
  * @date 2016/8/31
@@ -10,6 +13,27 @@ public class Employee {
     private String name;
 
     private float salary;
+    private Map<String, String> keySet = new HashMap<>();
+    private int[] factoryId = {1, 2};
+
+    public Map<String, String> getKeySet() {
+        return keySet;
+    }
+
+    public void setKeySet(Map<String, String> keySet) {
+        this.keySet = keySet;
+    }
+
+    public int[] getFactoryId() {
+        return factoryId;
+    }
+
+    public void setFactoryId(int[] factoryId) {
+        this.factoryId = factoryId;
+    }
+
+
+
 
     public String getName() {
         return this.name;
