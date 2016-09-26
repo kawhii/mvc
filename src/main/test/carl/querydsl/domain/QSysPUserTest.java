@@ -23,9 +23,9 @@ public class QSysPUserTest {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass(OracleDriver.class);
 //        dataSource.setUrl("jdbc:oracle:thin:@192.168.100.235:1555:CARDDB");
-        dataSource.setUrl("jdbc:oracle:thin:@sunrise.myftp.org:1555:CARDDB");
-        dataSource.setUsername("ESALEB_DEV");
-        dataSource.setPassword("ESB1211DEV");
+        dataSource.setUrl("");
+        dataSource.setUsername("");
+        dataSource.setPassword("");
         sqlQueryFactory = new SQLQueryFactory(new Configuration(new OracleTemplates()), dataSource);
         
     }
