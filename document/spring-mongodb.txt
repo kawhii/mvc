@@ -12,4 +12,16 @@
 	
 3.base curd（增删改查）	
 	
-	
+
+4.QueryDsl使用（一）
+
+5.QueryDsl使用（二）
+
+6.spring mongodb与QueryDsl集成
+
+7.高级查询
+    1）TextSearch
+    2）DBRef
+    3）MapReduce
+    4）Aggregation
+
