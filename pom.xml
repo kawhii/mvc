@@ -87,8 +87,8 @@
                 <configuration>
                     <jdbcDriver>oracle.jdbc.driver.OracleDriver</jdbcDriver>
                     <jdbcUrl>jdbc:oracle:thin:@192.168.100.235:1555:CARDDB</jdbcUrl>
-                    <jdbcUser>ESALEB_DEV</jdbcUser>
-                    <jdbcPassword>ESB1211DEV</jdbcPassword>
+                    <jdbcUser></jdbcUser>
+                    <jdbcPassword></jdbcPassword>
                     <packageName>com.carl.querydsl.domain</packageName>
                     <tableNamePattern>SYS_P_USER</tableNamePattern>
                     <targetFolder>${project.basedir}/target</targetFolder>
