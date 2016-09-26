@@ -23,7 +23,7 @@ public class QSysPUserTest {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass(OracleDriver.class);
 //        dataSource.setUrl("jdbc:oracle:thin:@192.168.100.235:1555:CARDDB");
-        dataSource.setUrl("");
+        //todo 密码输入
         dataSource.setUsername("");
         dataSource.setPassword("");
         sqlQueryFactory = new SQLQueryFactory(new Configuration(new OracleTemplates()), dataSource);
