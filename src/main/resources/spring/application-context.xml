@@ -11,6 +11,5 @@
     <context:component-scan base-package="com.test51.carl.spring"/>
     <!--支持注解-->
     <context:annotation-config/>
-    <import resource="classpath:spring/servlet-context.xml"></import>
-    <import resource="classpath:spring/websocket-context.xml"></import>
+    <import resource="classpath:spring/spring-*.xml"></import>
 </beans>
