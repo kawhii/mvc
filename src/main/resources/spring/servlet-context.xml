@@ -6,12 +6,32 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
+    <!--可注解-->
     <mvc:annotation-driven/>
+
+    <!--视图资源-->
     <mvc:view-resolvers>
-        <mvc:freemarker cache-views="false" suffix=".ftl"/>
+        <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+            <property name="viewClass"
+                      value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"></property>
+            <property name="suffix" value="${freemarker.suffix}"></property>
+            <property name="contentType" value="text/html;charset=utf-8"/>
+        </bean>
     </mvc:view-resolvers>
 
-    <mvc:freemarker-configurer>
-        <mvc:template-loader-path location="/pages/freemarker"/>
-    </mvc:freemarker-configurer>
+
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="${freemarker.location}"/>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="default_encoding">UTF-8</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--resource资源-->
+    <mvc:resources mapping="!resource/**" location="scripts/">
+        <mvc:cache-control max-age="5000" cache-public="true"></mvc:cache-control>
+    </mvc:resources>
+
 </beans>
