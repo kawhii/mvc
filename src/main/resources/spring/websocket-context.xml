@@ -10,6 +10,7 @@
 
     <websocket:handlers>
         <websocket:mapping path="/echo" handler="myHandler" />
+        <websocket:sockjs/>
     </websocket:handlers>
     <bean id="myHandler" class="com.test51.carl.spring.websocket.handle.MyHandler"></bean>
 </beans>

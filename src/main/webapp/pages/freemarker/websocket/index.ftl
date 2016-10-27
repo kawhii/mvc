@@ -9,5 +9,20 @@
 </head>
 <body>
 <h2>WEB SOCKET 测试</h2>
+<script>
+    var sock = new SockJS('http://localhost:8080/echo');
+    sock.onopen = function() {
+        console.log('open');
+    };
+    sock.onmessage = function(e) {
+        console.log('message', e.data);
+    };
+    sock.onclose = function() {
+        console.log('close');
+    };
+
+    sock.send('test');
+    sock.close();
+</script>
 </body>
 </html>
