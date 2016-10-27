@@ -12,4 +12,5 @@
     <!--支持注解-->
     <context:annotation-config/>
     <import resource="classpath:spring/servlet-context.xml"></import>
+    <import resource="classpath:spring/websocket-context.xml"></import>
 </beans>

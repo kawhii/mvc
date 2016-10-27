@@ -17,6 +17,6 @@ public class HelloWorldCtrl {
     @RequestMapping("/main")
     public String main() {
         System.out.println("....");
-        return "";
+        return "hello/hello";
     }
 }
