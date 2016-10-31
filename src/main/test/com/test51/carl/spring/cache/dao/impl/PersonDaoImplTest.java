@@ -13,28 +13,35 @@ import static org.junit.Assert.*;
  */
 public class PersonDaoImplTest extends SpringBaseTester {
     private IPersonDao personDao;
+    private String id = "56e19bbd0c1a270f0843841c";
     @Override
     @Before
     public void setUp() throws Exception {
         super.setUp();
-        personDao = getApplicationContext().getBean(PersonDaoImpl.class);
+        personDao = getApplicationContext().getBean(IPersonDao.class);
         Assert.assertNotNull(personDao);
     }
 
     @Test
     public void findById() throws Exception {
-        Object obj = personDao.findById("58171df8681f8e7c5c4aab7d");
+        //personDao.deleteById(id);
+        personDao.findByIdNoCache(id);
+        Object obj = personDao.findById(id);
+        personDao.findById(id);
+        personDao.deleteById(id);
+        personDao.findById(id);
         System.out.println(obj);
     }
 
     @Test
     public void findByIdNoCache() throws Exception {
-
+        Object obj = personDao.findByIdNoCache(id);
+        System.out.println(obj);
     }
 
     @Test
     public void deleteById() throws Exception {
-
+        personDao.deleteById(id);
     }
 
 }

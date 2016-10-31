@@ -3,6 +3,7 @@ package com.test51.carl.spring.cache.dao.impl;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.test51.carl.spring.cache.dao.IPersonDao;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.*;
 import org.springframework.stereotype.Repository;
@@ -23,21 +24,27 @@ public class PersonDaoImpl implements IPersonDao {
 
 
     @Override
-    @Caching(cacheable = @Cacheable, put = @CachePut)
+    @Caching(cacheable = @Cacheable)
     public Object findById(String id) {
-        return findByIdNoCache(id);
+        System.out.println("PersonDaoImpl.findById");
+        return find(id);
+    }
+
+    private Object find(String id) {
+        return db.getCollection(collectionName).findOne(new ObjectId(id));
     }
 
     @Override
+    @CachePut
     public Object findByIdNoCache(String id) {
-        BasicDBObject doc = new BasicDBObject();
-        doc.put("_id", id);
-        return db.getCollection(collectionName).find(doc);
+        System.out.println("PersonDaoImpl.findByIdNoCache");
+        return find(id);
     }
 
     @Override
     @CacheEvict
     public void deleteById(String id) {
+        System.out.println("PersonDaoImpl.deleteById");
         BasicDBObject doc = new BasicDBObject();
         doc.put("_id", id);
         db.getCollection(collectionName).remove(doc);
