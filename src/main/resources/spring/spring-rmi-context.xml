@@ -4,15 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="accountService" class="com.test51.carl.spring.rmi.AccountServiceImpl">
-        <!-- any additional properties, maybe a DAO? -->
+    <!--<bean id="accountService" class="com.test51.carl.spring.rmi.AccountServiceImpl">
+        &lt;!&ndash; any additional properties, maybe a DAO? &ndash;&gt;
     </bean>
     <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
-        <!-- does not necessarily have to be the same name as the bean to be exported -->
+        &lt;!&ndash; does not necessarily have to be the same name as the bean to be exported &ndash;&gt;
         <property name="serviceName" value="AccountService"/>
         <property name="service" ref="accountService"/>
         <property name="serviceInterface" value="com.test51.carl.spring.rmi.AccountService"/>
-        <!-- defaults to 1099 -->
+        &lt;!&ndash; defaults to 1099 &ndash;&gt;
         <property name="registryPort" value="1199"/>
     </bean>
 
@@ -20,5 +20,5 @@
     <bean id="accountServiceClient" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
         <property name="serviceUrl" value="rmi://192.168.100.66:1199/AccountService"/>
         <property name="serviceInterface" value="com.test51.carl.spring.rmi.AccountService"/>
-    </bean>
+    </bean>-->
 </beans>
