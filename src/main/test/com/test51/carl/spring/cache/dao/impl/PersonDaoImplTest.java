@@ -17,7 +17,7 @@ public class PersonDaoImplTest extends SpringBaseTester {
     @Before
     public void setUp() throws Exception {
         super.setUp();
-        personDao = getApplicationContext().getBean(PersonDaoImpl.class);
+        personDao = getApplicationContext().getBean(IPersonDao.class);
         Assert.assertNotNull(personDao);
     }
 

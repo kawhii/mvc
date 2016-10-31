@@ -14,8 +14,8 @@ import org.springframework.stereotype.Repository;
  * <p>
  * 版权所有.(c)2008-2016.广州市森锐科技股份有限公司
  */
-@Repository
 @CacheConfig(cacheNames = "cache_person")
+@Repository
 public class PersonDaoImpl implements IPersonDao {
     public static final String collectionName = "person";
     @Autowired
