@@ -1,7 +1,7 @@
 package com.test51.carl.spring.mongodb.config;
 
-import com.mongodb.DB;
 import com.mongodb.MongoClient;
+import com.mongodb.client.MongoDatabase;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ public class MongoDbConfig {
     }
 
     @Bean
-    public DB db(@Value("${mongodb.db_name}") String dbName, @Value("${mongodb.host}") String host) throws UnknownHostException {
-        return mongoClient(host).getDB(dbName);
+    public MongoDatabase db(@Value("${mongodb.db_name}") String dbName, @Value("${mongodb.host}") String host) throws UnknownHostException {
+        return mongoClient(host).getDatabase(dbName);
     }
 }

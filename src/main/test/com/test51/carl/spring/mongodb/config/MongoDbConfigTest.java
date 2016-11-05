@@ -2,6 +2,7 @@ package com.test51.carl.spring.mongodb.config;
 
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
+import com.mongodb.client.MongoDatabase;
 import com.test51.carl.spring.mongodb.SpringBaseTester;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,12 +27,12 @@ public class MongoDbConfigTest extends SpringBaseTester {
     @Test
     public void mongoClient() throws Exception {
         assertNotNull(mongoClient);
-        assertTrue(mongoClient.getDatabaseNames().size() > 0);
+        assertTrue(mongoClient.listDatabases().first() != null);
     }
 
     @Test
     public void db() throws Exception {
-        DB db = getApplicationContext().getBean(DB.class);
+        MongoDatabase db = getApplicationContext().getBean(MongoDatabase.class);
         assertNotNull(db);
     }
 }
