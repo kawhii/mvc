@@ -1,5 +1,8 @@
 package com.test51.carl.spring.mongodb;
 
+import com.mongodb.Block;
+import com.mongodb.client.FindIterable;
+import com.mongodb.util.JSON;
 import com.test51.carl.spring.mongodb.repositories.BlogRepertory;
 import org.bson.Document;
 import org.junit.Assert;
@@ -27,9 +30,12 @@ public class BlogRepertoryTest extends SpringBaseTester {
     public void find() throws Exception {
 
 
-        Object obj = repertory.find();
-        System.out.println(obj);
-        Assert.assertNotNull(obj);
+        FindIterable<Document> doc = (FindIterable<Document>) repertory.find();
+        doc.forEach(new Block<Document>() {
+            public void apply(Document document) {
+                System.out.println(JSON.serialize(document));
+            }
+        });
     }
 
 
@@ -59,11 +65,11 @@ public class BlogRepertoryTest extends SpringBaseTester {
 
     @Test
     public void deleteBlogById() throws Exception {
-        repertory.deleteBlogById("581e12bf562f8925e0af42d2");
+        repertory.deleteBlogById("582080cf562f891c90e29a7e");
     }
 
     @Test
     public void updateBlog() throws Exception {
-        repertory.updateBlog(new Document("name", "i like mongodb"), new Document("name", "carl's blog"));
+        repertory.updateBlog(new Document("time", "20161106"), new Document("content", "carl's blog"));
     }
 }
