@@ -12,11 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Arrays;
 
 import static com.mongodb.client.model.Aggregates.limit;
+import static com.mongodb.client.model.Aggregates.sort;
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.gte;
 import static com.mongodb.client.model.Indexes.ascending;
-import static com.mongodb.client.model.Indexes.text;
 import static org.junit.Assert.*;
 
 /**
