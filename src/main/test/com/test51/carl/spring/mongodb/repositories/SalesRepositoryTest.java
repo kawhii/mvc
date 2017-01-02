@@ -40,6 +40,7 @@ public class SalesRepositoryTest extends SpringBaseTester {
    ]
 );
         * */
+        //https://docs.mongodb.com/v3.2/reference/operator/aggregation/sum/#grp._S_sum
         AggregateIterable iterable = collection().aggregate(Arrays.asList(group("$count",
                 sum("totalAmount", "$totalAmount"))));
         iterable.forEach((Block) document -> {
