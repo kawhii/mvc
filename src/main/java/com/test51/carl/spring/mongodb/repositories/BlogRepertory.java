@@ -1,7 +1,5 @@
 package com.test51.carl.spring.mongodb.repositories;
 
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
