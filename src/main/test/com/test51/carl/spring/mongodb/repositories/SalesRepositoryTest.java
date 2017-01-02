@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
 
+import static com.mongodb.client.model.Accumulators.avg;
 import static com.mongodb.client.model.Accumulators.sum;
 import static com.mongodb.client.model.Aggregates.group;
 import static org.junit.Assert.*;
@@ -43,6 +44,16 @@ public class SalesRepositoryTest extends SpringBaseTester {
         //https://docs.mongodb.com/v3.2/reference/operator/aggregation/sum/#grp._S_sum
         AggregateIterable iterable = collection().aggregate(Arrays.asList(group("$count",
                 sum("totalAmount", "$totalAmount"))));
+        iterable.forEach((Block) document -> {
+            System.out.println(document);
+        });
+    }
+
+    @Test
+    public void testAvg() throws Exception {
+        //https://docs.mongodb.com/v3.2/reference/operator/aggregation/sum/#grp._S_sum
+        AggregateIterable iterable = collection().aggregate(Arrays.asList(group("$count",
+                avg("totalAmount", "$totalAmount"))));
         iterable.forEach((Block) document -> {
             System.out.println(document);
         });
