@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 public class OrderRepository extends BaseRepository {
     @Override
     public String collectionName() {
-        return "order";
+        return "orders";
     }
 }
