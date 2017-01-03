@@ -36,9 +36,4 @@ public class OrdersRepositoryTest extends SpringBaseTester {
         assertNotNull(eo);
         assertEquals(eo.getCusId(), eo.getCusId());
     }
-
-    @Test
-    public void find() throws Exception {
-
-    }
 }
