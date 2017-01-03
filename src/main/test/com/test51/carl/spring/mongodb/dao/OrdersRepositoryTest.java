@@ -31,6 +31,9 @@ public class OrdersRepositoryTest extends SpringBaseTester {
         orders.setOrdDate(new Date());
         orders.setPrice(100);
         orders.setCusId("Y");
-        ordersRepository.save(orders);
+        Orders sOrd = ordersRepository.save(orders);
+        Orders eo = ordersRepository.findOne(sOrd.getId());
+        assertNotNull(eo);
+        assertEquals(eo.getCusId(), eo.getCusId());
     }
 }
