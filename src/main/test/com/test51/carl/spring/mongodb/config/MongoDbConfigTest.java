@@ -4,8 +4,11 @@ import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 import com.test51.carl.spring.mongodb.SpringBaseTester;
+import com.test51.carl.spring.mongodb.repositories.SalesRepository;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 
 import static org.junit.Assert.*;
 
@@ -14,6 +17,9 @@ import static org.junit.Assert.*;
  */
 public class MongoDbConfigTest extends SpringBaseTester {
     private MongoClient mongoClient;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
     @Override
     @Before
@@ -34,5 +40,13 @@ public class MongoDbConfigTest extends SpringBaseTester {
     public void db() throws Exception {
         MongoDatabase db = getApplicationContext().getBean(MongoDatabase.class);
         assertNotNull(db);
+    }
+
+    @Test
+    public void mongoTemplate() throws Exception {
+        assertNotNull(mongoTemplate);
+        boolean exists = mongoTemplate.collectionExists("orders");
+        assertTrue(exists);
+
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import java.net.UnknownHostException;
 
@@ -14,6 +15,7 @@ import java.net.UnknownHostException;
  * @date 2016/10/23
  */
 @Configuration
+@EnableMongoRepositories(basePackages = "com.test51.carl.spring.mongodb.dao")
 public class MongoDbConfig {
     @Bean
     public MongoClient mongoClient(@Value("${mongodb.host}") String host) {
