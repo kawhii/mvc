@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -27,7 +28,6 @@ public class OrdersRepositoryTest extends SpringBaseTester {
     @Test
     public void save() throws Exception {
         Orders orders = new Orders();
-        orders.setCusId("abc-d");
         orders.setOrdDate(new Date());
         orders.setPrice(100);
         orders.setCusId("Y");
@@ -35,5 +35,17 @@ public class OrdersRepositoryTest extends SpringBaseTester {
         Orders eo = ordersRepository.findOne(sOrd.getId());
         assertNotNull(eo);
         assertEquals(eo.getCusId(), eo.getCusId());
+    }
+
+    @Test
+    public void findTop10ByCusId() throws Exception {
+        List<Orders> orders = ordersRepository.findTop10ByCusId("Y");
+        System.out.println(orders);
+    }
+
+    @Test
+    public void readTop5ByCusId() throws Exception {
+        List<Orders> orders = ordersRepository.readTop5ByCusId("Y");
+        System.out.println(orders);
     }
 }
