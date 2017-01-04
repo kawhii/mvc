@@ -70,4 +70,15 @@ public class Orders {
         this.price = price;
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "id='" + id + '\'' +
+                ", cusId='" + cusId + '\'' +
+                ", ordDate=" + ordDate +
+                ", status='" + status + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
